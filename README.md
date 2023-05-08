@@ -13,7 +13,7 @@ Dangerous Dave is a Freeware Platform single-player 2D game developed by John Ro
 
 - [Overview](#1-overview)
 - [Architecture](#2-architecture)
-- [Architecture](#3-schematic-and-rtl)
+- [Schematic](#3-schematic-and-rtl)
 
 
 ## 1. Overview
