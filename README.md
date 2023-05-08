@@ -9,7 +9,8 @@ Dangerous Dave is a Freeware Platform single-player 2D game developed by John Ro
 
 - [Overview](#1-overview)
 - [Architecture](#2-architecture)
-- [Schematic](#3-schematic-and-rtl)
+- [Debug Tools](#3-debug-tools)
+- [Summary](#4-fpga-implementation-summary)
 
 
 ## 1. Overview
@@ -22,7 +23,7 @@ This version of Dangerous Dave was designed to play on a programmed Terasic DE-1
 <img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/BlockDiagram.png"  width="60%" height="60%">
 
 ### 2.2 Top Hierarchy
-<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/TopHierarchy.png"  width="60%" height="60%">
+<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/TopHierarchy.png"  width="80%" height="80%">
 
 ### 2.3 I/O Interfaces
 <p align="center"><img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/IO.png"  width="40%" height="40%"></p>
@@ -37,7 +38,7 @@ This version of Dangerous Dave was designed to play on a programmed Terasic DE-1
 
 
 ### 2.4 Drawing to screen module
-<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/DrawingMatrices.png"  width="40%" height="40%">
+<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/DrawingMatrices.png"  width="60%" height="60%">
 
 | Drawing to screen steps |
 |----------------------|
@@ -56,6 +57,7 @@ The player then has an option to restart the game and start from the beginning.
 <img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/mealyFSM.png"  width="60%" height="60%">
 
 State machine wavform
+
 <img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/stateMachineWaveforms.png"  width="60%" height="60%">
 
 ## 3. Debug Tools
@@ -89,4 +91,4 @@ Logic Utilization of 6%
 Total block memory bits < 1%
 Compilation time of 3:37 (goal was to be under 10:00 minutes)
 
-<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/FlowSummary.png"  width="60%" height="60%">
+<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/FlowSummary.png"  width="50%" height="50%">
