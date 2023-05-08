@@ -1,11 +1,11 @@
 # Dangerous Dave programmed on an FPGA
 <p>
-<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/gameplayA.jpg"  width="40%" height="40%">
-<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/gameplayB.jpg"  width="40%" height="40%">
+<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/gameplayA.png"  width="40%" height="40%">
+<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/gameplayB.png"  width="40%" height="40%">
 </p>
 <p>
-<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/gameplayC.jpg"  width="40%" height="40%">
-<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/gameplayD.jpg"  width="40%" height="40%">
+<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/gameplayC.png"  width="40%" height="40%">
+<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/gameplayD.png"  width="40%" height="40%">
 </p>
 
 A remake for the nostalgic 2D video game programmed on a DE-10 Standard. 
@@ -13,7 +13,7 @@ Dangerous Dave is a Freeware Platform single-player 2D game developed by John Ro
 
 - [Overview](#1-overview)
 - [Architecture](#2-architecture)
-- [Architecture](#2-architecture)
+- [Architecture](#3-schematic-and-rtl)
 
 
 ## 1. Overview
@@ -24,7 +24,11 @@ This version of Dangerous Dave was designed to play on a programmed Terasic DE-1
 
 
 ## 2. Architecture
-### 2.1 I/O Interfaces
+
+### 2.1 Block Diagram
+<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/BlockDiagram.png"  width="60%" height="60%">
+
+### 2.2 I/O Interfaces
 <p align="center"><img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/IO.png"  width="40%" height="40%"></p>
 
 | Unit| Description 
@@ -36,11 +40,17 @@ This version of Dangerous Dave was designed to play on a programmed Terasic DE-1
 | `Audio`               | Manages and delivers the game's audio output to an external speaker using the AUX port |
 
 
-### 2.2 Block Diagram
-<img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/BlockDiagram.png"  width="60%" height="60%">
-
-### 2.3 Drawing Module
+### 2.3 Drawing to screen module
 <img src="https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/DrawingMatrices.png"  width="303" height="115">
+
+| Drawing to screen steps |
+|----------------------|
+| Reset the matrices that hold all the objects and their positions in screen | 
+| On receiving _level_, _pixelX_, _pixelY_ from the VGA controller the module check if there's a drawing request for a new bitmap | 
+| The Bitmap looks for the current value to draw on the screen and sends it as _RGB[7..0]_ together with a _drawingRequest_ |
+| On receiving _collision_ between the player and an object, the module can erase the object from the matrix |
+
+
 
 ## 3. Schematic and RTL
 ### 3.1 Top Hierarchy
@@ -75,7 +85,7 @@ The Signal Tap logic analyser captures real-time signals in an FPGA and allows o
 
 
 ## 🎯 Objectives
-- [x] **🏃 Player Movement _using_ [keys and switches](https://github.com/sthd/Dangerous-Dave-FPGA/edit/main/README.md ""):**
+- [x] **🏃 Player Movement _using_ [keys and switches](https://github.com/sthd/Dangerous-Dave-FPGA/edit/main/README.md ""#1-overview):**
   - [x] Horizontal Movement
   - [x] Vertical Movement (Jumping).
 
@@ -83,7 +93,7 @@ The Signal Tap logic analyser captures real-time signals in an FPGA and allows o
   - [x] 3 strikes _using_ [State Machine](https://github.com/sthd/Dangerous-Dave-FPGA/blob/main/b/stateMachineWaveforms.png)
   - [x] Strike if player did not progress to the next level before timer countdown
   - [x] 
-- [x] **📣 Audio _using [MSS DEMO](https://docs.unity3d.com/Manual/class-AudioSource.html)_ written by Alex Grinshpun and David bar-On:**
+- [x] **📣 Audio _using [MSS DEMO](https://github.com/sthd/Dangerous-Dave-FPGA/edit/main/README.md "#1-overview")_ written by Alex Grinshpun and David bar-On:**
     - [x] Background Music (BGM) with volume, pitch, and **looping** features _using [Audio Source Play](https://docs.unity3d.com/ScriptReference/AudioSource.Play.html)_.
         - [x] Sound (https://docs.unity3d.com/ScriptReference/AudioSource.PlayOneShot.html)_.
         - [x] Distance-Relative Audio _using 3D Sound Settings of [Audio Source Component](https://docs.unity3d.com/Manual/class-AudioSource.html)_.
